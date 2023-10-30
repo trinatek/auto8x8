@@ -1,0 +1,22 @@
+name: Run Docker Container
+on:
+  repository_dispatch:
+    types: [run-docker-container]
+jobs:
+  run-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Build Docker image
+        run: docker build -t auto8x8 .
+        
+      - name: Run Docker container
+        run: >
+          docker run 
+          -e LOGIN_USER=${{ secrets.LOGIN_USER }} 
+          -e LOGIN_PASSWORD=${{ secrets.LOGIN_PASSWORD }} 
+          -e CONTACT_NAME=${{ github.event.client_payload.CONTACT_NAME }} 
+          -e CONTACT_PHONE_NUMBER=${{ github.event.client_payload.CONTACT_PHONE_NUMBER }} 
+          auto8x8
