@@ -1,0 +1,25 @@
+{
+  "name": "auto8x8",
+  "version": "1.0.0",
+  "description": "Auto switching of 8x8 Call Forwarding contacts using Playwright and Google Apps Script.",
+  "main": "main.js",
+  "scripts": {
+    "main": "ts-node src/main.ts",
+    "debug": "cross-env NODE_OPTIONS=--inspect ts-node src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "auto8x8"
+  },
+  "author": "Napoleon Vang",
+  "license": "ISC",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.76",
+    "@types/node": "^20.8.9",
+    "clasp": "^1.0.0",
+    "node": "^21.1.0",
+    "playwright": "^1.39.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

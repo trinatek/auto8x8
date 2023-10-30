@@ -1,0 +1,72 @@
+# 1. Node.js / TypeScript / NPM related
+.eslintcache
+.node_repl_history
+.npm/
+.npmignore
+.npmrc
+.package-lock.json
+.tsbuildinfo
+.tscache/
+.tsdrc
+.yarn-lock
+.yarn/
+.yarnrc
+/build/
+/dist/
+/lib/
+node_modules/
+
+# 2. OS related
+._*
+.DS_Store
+.Spotlight-V100
+.Trashes
+*.swp
+*.temp
+*.tmp
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+# 3. IDE related
+.idea/
+.vim/
+.vscode/
+*.njsproj
+*.ntvs*
+*.sublime*
+*.suo
+*.tmproj
+
+# 4. Logs
+*.log
+logs/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 5. Compiled Files
+*.exe
+*.dll
+*.so
+*.o
+*.out
+
+# 6. Sensitive or high-churn files
+.env
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+.secret
+*.cer
+*.code-workspace
+*.crt
+*.jks
+*.key
+*.keystore
+*.p12
+*.pem
+*.pfx
+*.pkcs12

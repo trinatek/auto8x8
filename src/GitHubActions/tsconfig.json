@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist",
+    "rootDir": "./",
+    "isolatedModules": true,
+  },
+  "include": [
+    "../../GitHubActions/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+  ],
+}
