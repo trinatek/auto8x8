@@ -9,10 +9,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Build Docker image
+      - name: Build auto8x8 Docker image
         run: docker build -t auto8x8 .
         
-      - name: Run Docker container
+      - name: Run auto8x8 Docker container
         run: >
           docker run 
           -e LOGIN_USER=${{ secrets.LOGIN_USER }} 

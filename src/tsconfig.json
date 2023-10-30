@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../dist",
+        "rootDir": "./",
+        "isolatedModules": true
+    },
+    "include": [
+        "../../Auto8x8/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "Client"
+    ]
+}
