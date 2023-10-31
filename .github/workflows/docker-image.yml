@@ -15,6 +15,8 @@ jobs:
       - name: Run auto8x8 Docker container
         run: >
           docker run
+          -e LOGIN_USER=${{ secrets.LOGIN_USER }} 
+          -e LOGIN_PASSWORD=${{ secrets.LOGIN_PASSWORD }} 
           -e CONTACT_NAME=${{ github.event.client_payload.CONTACT_NAME }} 
           -e CONTACT_PHONE_NUMBER=${{ github.event.client_payload.CONTACT_PHONE_NUMBER }} 
           auto8x8
