@@ -2,11 +2,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist",
-    "rootDir": "./",
-    "isolatedModules": true
+    "rootDir": "",
+    "module": "None",
+    "types": ["google-apps-script"]
   },
   "include": [
-    "../../AppsScript/**/*.ts"
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules"

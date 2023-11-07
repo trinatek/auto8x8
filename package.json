@@ -15,8 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "@types/google-apps-script": "^1.0.76",
+    "@types/moment-timezone": "^0.5.30",
     "@types/node": "^20.8.9",
     "clasp": "^1.0.0",
+    "moment-timezone": "^0.5.43",
     "node": "^21.1.0",
     "playwright": "^1.39.0",
     "ts-node": "^10.9.1",

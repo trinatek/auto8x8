@@ -3,13 +3,17 @@
     "compilerOptions": {
         "outDir": "../dist",
         "rootDir": "./",
-        "isolatedModules": true
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "lib": ["ES2020", "dom"] 
     },
     "include": [
-        "../../Auto8x8/**/*.ts"
+        "./**/*.ts"
     ],
     "exclude": [
-        "node_modules",
-        "Client"
+        "client",
+        "node_modules"
     ]
 }
