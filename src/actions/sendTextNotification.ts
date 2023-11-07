@@ -90,7 +90,6 @@ async function closeTutorialDialog(
   const CONFIRM_BUTTON = "[data-id='dialog-container'] [data-qa='button-yes']";
 
   const intervalId = setInterval(async () => {
-    // console.log("Waiting for tutorial..")
     try {
       const TUTORIAL_DIALOG = await page.$(CLOSE_BUTTON);
       if (TUTORIAL_DIALOG) {
@@ -114,7 +113,6 @@ async function closeNoAudioDialog(
   const CLOSE_BUTTON = "[data-test-id='MODAL_HEADER_CLOSE_ICON']";
 
   const intervalId = setInterval(async () => {
-    // console.log("Waiting for no audio..")
     const NO_AUDIO_DIALOG = await page.$('[data-qa="select-source"]');
     if (NO_AUDIO_DIALOG) {
       await page.locator(CLOSE_BUTTON).click();
@@ -132,7 +130,6 @@ async function closeVoiceMailDialog(
   const CLOSE_BUTTON = "[data-test-id='MODAL_HEADER_CLOSE_ICON']";
 
   const intervalId = setInterval(async () => {
-    // console.log("Waiting for voicemail..")
     const VOICE_MAIL_DIALOG = await page.$("[data-qa='upload']");
     if (VOICE_MAIL_DIALOG) {
       await page.locator(CLOSE_BUTTON).click();

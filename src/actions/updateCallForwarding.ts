@@ -1,6 +1,7 @@
 // src/actions/login.ts
 import { Page } from "playwright";
 import { BrowserSession } from "../browser";
+import { obfuscate } from "../utilities";
 
 
 ////////////////////
@@ -116,7 +117,9 @@ async function validateChanges(page: Page, phoneNumber: string) {
   await fetchConfigPage(page);
   
   if (await isCorrectValue(page, phoneNumber)) {
-    console.log(`Successfully updated the On-Call phone number to: ${phoneNumber}`);
+    console.log(
+      `Successfully updated the On-Call phone number to: ${obfuscate(phoneNumber, 4)}`
+    );
     return;
   }
   throw new Error("Failed to update the On-Call phone number.");
@@ -134,8 +137,8 @@ async function isCorrectValue(
   const previousPhoneNumber = normalizePhoneNumber(await getContact(page));
   const newPhoneNumber = normalizePhoneNumber(phoneNumber);
   
-  console.log(`Current value: ${previousPhoneNumber}`);
-  console.log(`Target value: ${newPhoneNumber}`)
+  console.log(`Current value: ${obfuscate(previousPhoneNumber, 4)}`);
+  console.log(`Target value: ${obfuscate(newPhoneNumber, 4)}`)
   
   return newPhoneNumber === previousPhoneNumber;
 }
