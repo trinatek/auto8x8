@@ -37,7 +37,7 @@ class GitHubAuthToken {
   
   private static fromUserScope(
     propertyName: string,
-  ): Optional<string> {
+  ): string | void {
     
     const token = PropertiesService.getUserProperties().getProperty(propertyName);
     
@@ -51,7 +51,7 @@ class GitHubAuthToken {
 
   private static fromScriptScope(
     propertyName: string,
-  ): Optional<string> {
+  ): string | void {
     
     const token = PropertiesService.getScriptProperties().getProperty(propertyName);
     

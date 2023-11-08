@@ -1,16 +1,3 @@
-enum GitHubEventTypes {
-  RUN_DOCKER_CONTAINER = "run-docker-container",
-}
-
-enum GitHubRunResults {
-  SUCCESS = "success",
-  FAILURE = "failure",
-}
-
-enum PropertiesServiceNames {
-  GITHUB_AUTH_TOKEN = "GITHUB_API_TOKEN_AUTO8X8",
-}
-
 enum HttpMethod {
   GET = "get",
   DELETE = "delete",
