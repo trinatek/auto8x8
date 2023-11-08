@@ -29,7 +29,7 @@ function main() {
   // 5. Send an email notification to the Integrations distro
   const email = {
     "recipient": Config.emailNotificationRecipient,
-    "subject": `${Contact.name} is On-Call.`,
+    "subject": `${contact?.name} is On-Call.`,
     "body": "🐕 Wow, oncall switch. Always alert. So responsibility.",
     "senderName": "Auto8x8",
     "senderEmail": "leon_vang@trimble.com",
