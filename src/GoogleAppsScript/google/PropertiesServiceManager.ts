@@ -1,8 +1,3 @@
-/**
- * PropertiesServiceManager provides a static interface to save and load Google
- * PropertiesService key/value pairs within a Google Apps Script environment. This is
- * is pretty much Google's answer to environment variables at the moment.
- */
 class PropertiesServiceManager {
   
   //////////////////////
@@ -26,7 +21,7 @@ class PropertiesServiceManager {
       return stringValue;
     }
     throw new Error(
-      `[PROPERTIES SERVICE] 🔴 Unable to locate '${propertyName}'.`
+      `[PropertiesServiceManager] 🔴 Unable to locate '${propertyName}'.`
     );
   };
 
@@ -38,7 +33,9 @@ class PropertiesServiceManager {
    */
   public static saveToUserScope(stringValue: string, propertyName: string): void {
     PropertiesService.getUserProperties().setProperty(propertyName, stringValue);
-    log(`[PROPERTIES SERVICE] Saved a value to '${propertyName}' (User Scope).`,);
+    console.log(
+      `[PropertiesServiceManager] Saved a value to '${propertyName}' (User Scope).`
+    );
   }
 
   /**
@@ -49,7 +46,9 @@ class PropertiesServiceManager {
    */
   public static saveToScriptScope(stringValue: string, propertyName: string): void {
     PropertiesService.getScriptProperties().setProperty(propertyName, stringValue);
-    log(`[PROPERTIES SERVICE] Saved a value to '${propertyName}' (Script Scope).`,);
+    console.log(
+      `[PropertiesServiceManager] Saved a value to '${propertyName}' (Script Scope).`
+    );
   }
   
   ///////////////////////
@@ -60,7 +59,9 @@ class PropertiesServiceManager {
     const stringValue = PropertiesService.getUserProperties().getProperty(propertyName);
     
     if (stringValue) {
-      log(`[PROPERTIES SERVICE] Loaded '${propertyName}' value from User scope.`);
+      console.log(
+        `[PropertiesServiceManager] Loaded '${propertyName}' value from User scope.`
+      );
       return stringValue;
     }
   };
@@ -69,7 +70,9 @@ class PropertiesServiceManager {
     const stringValue = PropertiesService.getScriptProperties().getProperty(propertyName);
     
     if (stringValue) {
-      log(`[PROPERTIES SERVICE] Loaded '${propertyName}' value from Script scope.`);
+      console.log(
+        `[PropertiesServiceManager] Loaded '${propertyName}' value from Script scope.`
+      );
       return stringValue;
     }
   };
