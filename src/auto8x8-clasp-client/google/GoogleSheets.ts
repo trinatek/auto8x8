@@ -26,18 +26,18 @@ class GoogleSheets {
   /**
    * Retrieves key-value pairs from the specified columns in the sheet.
    * 
-   * @param keysHeaderText - The header text of the column to be used as keys.
-   * @param valuesHeaderText - The header text of the column to be used as values.
+   * @param keysHeader - The header text of the column to be used as keys.
+   * @param valuesHeader - The header text of the column to be used as values.
    * @returns A record object with keys mapped to their corresponding values.
    * @throws Will throw an error if no matching key/value pairs are found.
    */
   public get(
-    keysHeaderText: string,
-    valuesHeaderText: string,
+    keysHeader: string,
+    valuesHeader: string,
   ): Record<string, any | undefined> {
 
-    const keys = this.getColumnValues(keysHeaderText);
-    const values = this.getColumnValues(valuesHeaderText);
+    const keys = this.getColumnValues(keysHeader);
+    const values = this.getColumnValues(valuesHeader);
 
     const keyValuePairs = keys.reduce(
       (acc, key, index) => {
@@ -58,12 +58,12 @@ class GoogleSheets {
 
   public getAs<T>(
     Class: { new(arg1: any, arg2: any): T },
-    keysHeaderText: string,
-    valuesHeaderText: string,
+    keysHeader: string,
+    valuesHeader: string,
   ): T[] {
 
-    const keys = this.getColumnValues(keysHeaderText);
-    const values = this.getColumnValues(valuesHeaderText);
+    const keys = this.getColumnValues(keysHeader);
+    const values = this.getColumnValues(valuesHeader);
 
     const keyValuePairs = keys.reduce(
       (acc, key, index) => {
