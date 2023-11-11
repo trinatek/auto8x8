@@ -12,7 +12,7 @@ function main() {
     "gitHubAuthToken",
     "gitHubEventType",
     "emailSenderName",
-    "emailSenderEmailAlias",
+    "emailSenderAlias",
     "emailRecipient",
     "emailSubject",
     "emailBody",
@@ -20,7 +20,7 @@ function main() {
 
   if (missingConfigs.length > 0) {
     throw new Error(
-      `[config] 🔴 The following required configurations are missing:\n` +
+      `🔴 [config] The following required configurations are missing:\n` +
       `${JSON.stringify(missingConfigs, null, 2)}`,
     );
   }
@@ -66,10 +66,13 @@ function main() {
   gitHubActions.awaitRunResult();
 
 
+  // Todo: Need to get results from the GitHubActions to know whether or not to send email
+  
+
   console.log("🔷 (6/6) Sending email confirmation...");
   const mail = new GoogleMail(
     config.emailSenderName,               // senderName
-    config.emailSenderEmailAlias,         // senderEmailAlias
+    config.emailSenderAlias,              // senderEmailAlias
   )
   mail.send(
     config.emailRecipient,                // emailRecipient

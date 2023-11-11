@@ -52,7 +52,7 @@ class GoogleSheets {
     }
 
     throw new Error(
-      `[GoogleSheets] 🔴 No matching key/value pairs found in sheet: ${this.sheetName}`
+      `🔴 [GoogleSheets] No matching key/value pairs found in sheet: ${this.sheetName}`
     );
   }
 
@@ -85,7 +85,7 @@ class GoogleSheets {
     }
 
     throw new Error(
-      `[GoogleSheets] 🔴 No matching key/value pairs found in sheet: ${this.sheetName}`
+      `🔴 [GoogleSheets] No matching key/value pairs found in sheet: ${this.sheetName}`
     );
   }
 
@@ -99,7 +99,7 @@ class GoogleSheets {
     if (sheet) {
       return sheet;
     }
-    throw new Error(`[GoogleSheets] 🔴 Sheet not found: ${sheetName}`);
+    throw new Error(`🔴 [GoogleSheets] Sheet not found: ${sheetName}`);
   }
 
   protected getColumnValues(columnName: string): string[] {

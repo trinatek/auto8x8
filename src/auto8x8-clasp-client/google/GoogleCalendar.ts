@@ -10,7 +10,7 @@ class GoogleCalendar {
     this.calendar = CalendarApp.getCalendarById(calendarId);
     
     if (!this.calendar) {
-      throw new Error("[GoogleCalendar] 🔴 Calendar not found.");
+      throw new Error("🔴 [GoogleCalendar] Calendar not found.");
     }
   }
   
@@ -38,7 +38,7 @@ class GoogleCalendar {
       );
       return matchedEvent;
     }
-    throw new Error("[GoogleCalendar] 🔴 No matching event found.");
+    throw new Error("🔴 [GoogleCalendar] No matching event found.");
   }
 
   /////////////////////////

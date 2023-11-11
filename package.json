@@ -1,24 +1,22 @@
 {
   "name": "auto8x8",
   "version": "1.0.0",
-  "description": "Auto switching of 8x8 Call Forwarding contacts using Playwright and Google Apps Script.",
-  "main": "main.js",
+  "description": "Auto-switch an 8x8 Call Forwarding contact. Built with 'clasp' and 'playwright'.",
+  "main": "ts-node ./src/auto8x8-playwright-host/main.ts",
   "scripts": {
-    "main": "ts-node src/main.ts",
-    "debug": "cross-env NODE_OPTIONS=--inspect ts-node src/main.ts"
+    "main": "ts-node ./src/auto8x8-playwright-host/main.ts",
+    "debug": "cross-env NODE_OPTIONS=--inspect ts-node ts-node ./src/auto8x8-playwright-host/main.ts"
   },
   "repository": {
     "type": "git",
-    "url": "auto8x8"
+    "url": "https://github.com/trinatek/auto8x8"
   },
   "author": "Napoleon Vang",
   "license": "ISC",
   "dependencies": {
-    "@types/google-apps-script": "^1.0.76",
-    "@types/moment-timezone": "^0.5.30",
-    "@types/node": "^20.8.9",
+    "@types/google-apps-script": "^1.0.77",
+    "@types/node": "^20.9.0",
     "clasp": "^1.0.0",
-    "moment-timezone": "^0.5.43",
     "node": "^21.1.0",
     "playwright": "^1.39.0",
     "ts-node": "^10.9.1",

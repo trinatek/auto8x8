@@ -11,6 +11,11 @@
         "userSymbol": "Gmail",
         "version": "v1",
         "serviceId": "gmail"
+      },
+      {
+        "userSymbol": "Sheets",
+        "version": "v4",
+        "serviceId": "sheets"
       }
     ]
   },

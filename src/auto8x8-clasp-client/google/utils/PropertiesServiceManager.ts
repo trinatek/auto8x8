@@ -15,24 +15,24 @@ class PropertiesServiceManager {
   public static load(propertyName: string): string {
     const userProperty = this.loadFromScriptScope(propertyName);
     const scriptProperty = this.loadFromUserScope(propertyName);
-    const stringValue = userProperty || scriptProperty;
+    const value = userProperty || scriptProperty;
     
-    if (stringValue) {
-      return stringValue;
+    if (value) {
+      return value;
     }
     throw new Error(
-      `[PropertiesServiceManager] 🔴 Unable to locate '${propertyName}'.`
+      `🔴 [PropertiesServiceManager] Unable to locate '${propertyName}'.`
     );
   };
 
   /**
    * Saves a property value to the User scope.
    *
-   * @param {string} stringValue - The value of the property to save.
+   * @param {string} value - The value of the property to save.
    * @param {string} propertyName - The name (or key) of the property to save.
    */
-  public static saveToUserScope(stringValue: string, propertyName: string): void {
-    PropertiesService.getUserProperties().setProperty(propertyName, stringValue);
+  public static saveToUserScope(value: string, propertyName: string): void {
+    PropertiesService.getUserProperties().setProperty(propertyName, value);
     console.log(
       `[PropertiesServiceManager] Saved a value to '${propertyName}' (User Scope).`
     );
@@ -41,11 +41,11 @@ class PropertiesServiceManager {
   /**
    * Saves a property value to the Script scope.
    *
-   * @param {string} stringValue - The value of the property to save.
+   * @param {string} value - The value of the property to save.
    * @param {string} propertyName - The name (or key) of the property to save.
    */
-  public static saveToScriptScope(stringValue: string, propertyName: string): void {
-    PropertiesService.getScriptProperties().setProperty(propertyName, stringValue);
+  public static saveToScriptScope(value: string, propertyName: string): void {
+    PropertiesService.getScriptProperties().setProperty(propertyName, value);
     console.log(
       `[PropertiesServiceManager] Saved a value to '${propertyName}' (Script Scope).`
     );
@@ -56,24 +56,24 @@ class PropertiesServiceManager {
   ///////////////////////
   
   private static loadFromUserScope(propertyName: string): string | void {
-    const stringValue = PropertiesService.getUserProperties().getProperty(propertyName);
+    const value = PropertiesService.getUserProperties().getProperty(propertyName);
     
-    if (stringValue) {
+    if (value) {
       console.log(
         `[PropertiesServiceManager] Loaded '${propertyName}' value from User scope.`
       );
-      return stringValue;
+      return value;
     }
   };
 
   private static loadFromScriptScope(propertyName: string): string | void {
-    const stringValue = PropertiesService.getScriptProperties().getProperty(propertyName);
+    const value = PropertiesService.getScriptProperties().getProperty(propertyName);
     
-    if (stringValue) {
+    if (value) {
       console.log(
         `[PropertiesServiceManager] Loaded '${propertyName}' value from Script scope.`
       );
-      return stringValue;
+      return value;
     }
   };
   

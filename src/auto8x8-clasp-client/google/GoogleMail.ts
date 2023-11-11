@@ -42,7 +42,7 @@ class GoogleMail {
     }
     catch (e) {
       throw new Error(
-        `[GoogleMail] 🔴 Failed to send email to '${emailRecipient}': ${e}`,
+        `🔴 [GoogleMail] Failed to send email to '${emailRecipient}': ${e}`,
       );
     }
   }

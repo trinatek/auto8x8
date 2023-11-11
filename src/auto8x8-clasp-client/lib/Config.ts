@@ -1,5 +1,19 @@
+/**
+ * The Auto8x8 configuration object for this project, loaded from a Google Sheet.
+ *
+ * @property {string} calendarId - The ID of the calendar.
+ * @property {string} gitHubUser - The GitHub username.
+ * @property {string} gitHubRepo - The GitHub repository name.
+ * @property {string} gitHubAuthToken - The GitHub authentication token.
+ * @property {string} gitHubEventType - The type of GitHub event.
+ * @property {string} emailSenderName - The name of the email sender.
+ * @property {string} emailSenderAlias - The alias of the email sender.
+ * @property {string} emailRecipient - The email recipient address.
+ * @property {string} emailSubject - The subject line of the email.
+ * @property {string} emailBody - The body content of the email.
+ */
 class Config {
-  
+
   [key: string]: any;
 
   public calendarId: string = "";
@@ -13,6 +27,13 @@ class Config {
   public emailSubject: string = "";
   public emailBody: string = "";
 
+  /*
+   * @param {string} [sheetName="Config"] - The name of the Google Sheet to load.
+   * @param {string} [configKey="configKey"] - The header text of the column to be used
+   *   as keys.
+   * @param {string} [configValue="configValue"] - The header text of the column to be
+   *   used as values.
+   */
   constructor(
     sheetName: string = "Config",
     configKey: string = "configKey",
@@ -22,7 +43,7 @@ class Config {
     this.loadAsProperties(config);
     this.validateNoMissingKeys(config);
     this.validateNoMissingValues();
-    
+
     console.log(`[Config] Loaded config properties from '${sheetName}' Google Sheet.`)
   }
 
@@ -58,9 +79,10 @@ class Config {
 
     if (missingKeyValues.length) {
       throw new Error(
-        `[config] 🔴 The following values are missing from these keys in the sheet:` +
+        `🔴 [config] The following values are missing from these keys in the sheet:` +
         `${missingKeyValues.map(k => `\n  • ${k}`)}`,
       );
     }
   }
+
 }

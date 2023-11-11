@@ -1,4 +1,6 @@
-function test() {
+function t_main() {
+  const TEST_EMAIL_RECIPIENT = "leon_vang@trimble.com";
+  
 
   console.log("🔷 (1/6) Loading 'Config'...");
   const config = new Config();
@@ -29,15 +31,21 @@ function test() {
 
 
   console.log("🔷 (5/6) Running GitHub Actions automation...");
-  // const gitHubActions = new GitHubActions(
-  //   config.gitHubUser,              // gitHubUser
-  //   config.gitHubRepo,              // gitHubRepo
-  //   PropertiesServiceManager.load(  // gitHubAuthToken
-  //     config.gitHubAuthToken,
-  //   ),
-  // )
-  // gitHubActions.startRun(config.gitHubEventType);
-  // gitHubActions.awaitRunResult();
+  const githubAuthToken = PropertiesServiceManager.load(config.gitHubAuthToken);
+  const gitHubActions = new GitHubActions(
+    config.gitHubUser,  // gitHubUser
+    config.gitHubRepo,  // gitHubRepo
+    githubAuthToken,    // gitHubAuthToken
+  );
+  const payload = {
+    "CONTACT_NAME": contact.name,
+    "CONTACT_PHONE_NUMBER": contact.phoneNumber,
+  }
+  gitHubActions.startRun(
+    config.gitHubEventType,  // eventType
+    payload,                 // payload
+  );
+  gitHubActions.awaitRunResult();
 
 
   console.log("🔷 (6/6) Sending email confirmation...");
@@ -46,12 +54,9 @@ function test() {
     config.emailSenderAlias,  // senderEmailAlias
   )
   mail.send(
-    config.emailRecipient,                                       // emailRecipient
+    TEST_EMAIL_RECIPIENT,                                        // emailRecipient
     format(config.emailSubject, { contactName: contact.name }),  // emailSubject
     format(config.emailBody, { contactName: contact.name}),      // emailBody
   );
 
 }
-
-
-////////////////////////////////////////////////////////////////////////////////////////

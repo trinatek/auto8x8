@@ -57,7 +57,7 @@ class Determine {
       }
     };
     throw new Error(
-      "[Determine] 🔴 Could not determine On-Call contact from Calendar event."
+      "🔴 [Determine] Could not determine On-Call contact from Calendar event."
     );
   }
 

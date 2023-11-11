@@ -35,28 +35,33 @@ class GitHubActions {
     payload: object,
   ): GoogleAppsScript.URL_Fetch.HTTPResponse {
 
-    console.log("[GitHubActions] Starting Docker container...");
-    
-    const response = UrlFetchApp.fetch(
-      `${this.baseUrl}/dispatches`,
-      {
-        "method": "post",
-        "muteHttpExceptions": false,
-        "contentType": "application/json",
-        "headers": {
-          "Accept": "application/vnd.github.everest-preview+json",
-          "Authorization": `token ${this.authToken}`
-        },
-        "payload": JSON.stringify(
-          { "event_type": eventType, "client_payload": payload }
-        ),
-      }
+    console.log(
+      `[GitHubActions] Starting Docker container...(${this.baseUrl}/dispatches)`
     );
-    if (response.getResponseCode()) {
+    const url = `${this.baseUrl}/dispatches`
+    const params = new UrlFetchAppParams()
+        .setMuteHttpExceptions(false)
+        .setMethod("post")
+        .setAccept(`application/vnd.github.everest-preview+json`)
+        .setContentType("application/json")
+        .setEventType(eventType)
+        .setClientPayload(payload)
+        .setAuthToken(this.authToken)
+        .setMuteHttpExceptions(false)
+        .obfuscatedLogToConsole()
+        .get();
+        
+    const response = UrlFetchApp.fetch(url, params);
+    
+    if (`${response.getResponseCode()}`.startsWith("2")) {
       console.log(`[GitHubActions] Started Docker container.`);
       return response;
     }
-    throw new Error("[GitHubActions] 🔴 Failed to start Docker container.");
+    
+    throw new Error(
+      `🔴 [GitHubActions] Failed to start Docker container:\n` +
+      `${response.getContentText()}`
+    );
   }
   
   /**
@@ -84,7 +89,7 @@ class GitHubActions {
       
       if (totalTimeoutSecs <= 0) {
         throw new Error(
-          "[GitHubActions] 🔴 Timed out waiting for GitHub Actions run to complete.",
+          "🔴 [GitHubActions] Timed out waiting for GitHub Actions run to complete.",
         );
       }
       const runInfo = this.getRunInfo();
@@ -103,7 +108,7 @@ class GitHubActions {
           
         default:
           throw new Error(
-            `[GitHubActions] 🔴 Run failed to complete its run in a timely manner, ` +
+            `🔴 [GitHubActions] Run failed to complete its run in a timely manner, ` +
             `status: ${runInfo.status}`
           );
       }
@@ -118,17 +123,15 @@ class GitHubActions {
   protected getRunInfo(): Record<string, any> {
     console.log(`[GitHubActions] Retrieving latest '${this.gitHubRepo}' run info...`);
 
-    const response = UrlFetchApp.fetch(
-      `${this.baseUrl}/actions/runs`,
-      {
-        "method": "get",
-        "muteHttpExceptions": false,
-        "headers": {
-          "Accept": "application/vnd.github.v3+json",
-          "Authorization": `Bearer ${this.authToken}`,
-        },
-      },
-    );
+    const url = `${this.baseUrl}/actions/runs`;
+    const params = new UrlFetchAppParams()
+     .setMethod("get")
+     .setAccept("application/vnd.github.v3+json")
+     .setAuthBearer(this.authToken)
+     .setMuteHttpExceptions(false)
+     .obfuscatedLogToConsole()
+     .get();
+    const response = UrlFetchApp.fetch(url, params);
     return JSON.parse(response.getContentText()).workflow_runs[0];
   }
   
