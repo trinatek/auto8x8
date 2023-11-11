@@ -1,0 +1,23 @@
+{
+    "scriptId": "1lID1Zkc0KeuvzJxMRAvDZIRStVZBYeQyv1Jms4Djn2lVRND0bM91w-48",
+    "rootDir": "./",
+    "parentId": [
+        "15ESS_P7Ij96KiOYT978znLV_i0spgbDpoUav-HPfmiw"
+    ],
+    "filePushOrder": [
+        "appsscript.json",
+        "google/utils/PropertiesServiceManager.ts",
+        "google/utils/UrlFetchAppParams.ts",
+        "google/GoogleCalendar.ts",
+        "google/GoogleMail.ts",
+        "google/GoogleSheets.ts",
+        "github/GitHubActions.ts",
+        "lib/types.ts",
+        "lib/Config.ts",
+        "lib/Determine.ts",
+        "lib/format.ts",
+        "lib/Schedule.ts",
+        "tests/t_main.ts",
+        "main.ts"
+    ]
+}
