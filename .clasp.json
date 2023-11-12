@@ -1,23 +1,23 @@
 {
     "scriptId": "1lID1Zkc0KeuvzJxMRAvDZIRStVZBYeQyv1Jms4Djn2lVRND0bM91w-48",
-    "rootDir": "./",
+    "rootDir": "./src/auto8x8-clasp-client",
     "parentId": [
         "15ESS_P7Ij96KiOYT978znLV_i0spgbDpoUav-HPfmiw"
     ],
     "filePushOrder": [
-        "appsscript.json",
-        "google/utils/PropertiesServiceManager.ts",
-        "google/utils/UrlFetchAppParams.ts",
-        "google/GoogleCalendar.ts",
-        "google/GoogleMail.ts",
-        "google/GoogleSheets.ts",
-        "github/GitHubActions.ts",
-        "lib/types.ts",
-        "lib/Config.ts",
-        "lib/Determine.ts",
-        "lib/format.ts",
-        "lib/Schedule.ts",
-        "tests/t_main.ts",
-        "main.ts"
+        "src/auto8x8-clasp-client/appsscript.json",
+        "src/auto8x8-clasp-client/google/utils/PropertiesServiceManager.ts",
+        "src/auto8x8-clasp-client/google/utils/UrlFetchAppParams.ts",
+        "src/auto8x8-clasp-client/google/GoogleCalendar.ts",
+        "src/auto8x8-clasp-client/google/GoogleMail.ts",
+        "src/auto8x8-clasp-client/google/GoogleSheets.ts",
+        "src/auto8x8-clasp-client/github/GitHubActions.ts",
+        "src/auto8x8-clasp-client/lib/types.ts",
+        "src/auto8x8-clasp-client/lib/Config.ts",
+        "src/auto8x8-clasp-client/lib/Determine.ts",
+        "src/auto8x8-clasp-client/lib/format.ts",
+        "src/auto8x8-clasp-client/lib/Schedule.ts",
+        "src/auto8x8-clasp-client/tests/t_main.ts",
+        "src/auto8x8-clasp-client/main.ts"
     ]
 }
