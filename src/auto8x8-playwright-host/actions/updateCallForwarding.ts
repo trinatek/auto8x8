@@ -1,7 +1,7 @@
 // src/actions/login.ts
 import { Page } from "playwright";
 import { BrowserSession } from "../browser";
-import { obfuscate } from "../utilities";
+import { obfuscate } from "../utils/obfuscate";
 
 
 ////////////////////
